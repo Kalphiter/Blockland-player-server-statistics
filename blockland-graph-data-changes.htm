@@ -5,7 +5,7 @@
 
 </head>
 <body>
-<textarea name="text" cols="120" rows="100">
+<textarea name="text" cols="140" rows="100">
     		//serious issues with server duplication on list, the amount of servers almost doubled to 144 from 59
     		if(file.equals("../../data_merged/2017_108d/03h/48.txt"))
     			continue;
@@ -13,7 +13,6 @@
     		//serious issues with server duplication on list, the amount of servers almost doubled to 144 from 59
     		if(file.equals("../../data_merged/2017_108d/03h/49.txt"))
     			continue;
-    		
     		
     		//series of spammers on 2015_181d that had tons of servers all with random, 23-character map names
     		if(year_day.equals("2015_181") && fields[7].length() == 23)
@@ -48,6 +47,22 @@
 		    	if(fields[0].equals("162.157.16.169"))
 		    		continue;
     		}
+    		
+    		//Server name: i.4cdn.org/b/'s 1516317872663.png
+    		//Massive player count inflation
+	    	if(year_day.equals("2018_017") && fields[0].equals("185.186.78.17"))
+    			continue;
+	    	
+	    	//Server names: various links to youtube, pastebin and hostr.co, including BLHack and random YouTube videos
+	    	//Massive player count inflation
+    		boolean ip_matched = false
+    		//The first IP is shared by Swallow, who hosted a server on it for 2 minutes on September 6th, 2017,
+    		//preceding this server list spam by 3.5 months
+    			||	fields[0].equals("72.10.168.91")
+				||  fields[0].equals("192.241.169.196")
+			    ||  fields[0].equals("185.186.79.120");
+	    	if(ip_matched && (year_day.equals("2017_326") || year_day.equals("2017_327")))
+	    			continue;
 
 	    	//Server name: Harry Mason's AnalRAPED
 	    	//Server name: Harry Mason's hacked
