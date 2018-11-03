@@ -5,7 +5,7 @@
 
 </head>
 <body>
-<textarea name="text" cols="140" rows="100">
+<textarea name="text" cols="140" rows="90">
     		//serious issues with server duplication on list, the amount of servers almost doubled to 144 from 59
     		if(file.equals("../../data_merged/2017_108d/03h/48.txt"))
     			continue;
@@ -47,22 +47,6 @@
 		    	if(fields[0].equals("162.157.16.169"))
 		    		continue;
     		}
-    		
-    		//Server name: i.4cdn.org/b/'s 1516317872663.png
-    		//Massive player count inflation
-	    	if(year_day.equals("2018_017") && fields[0].equals("185.186.78.17"))
-    			continue;
-	    	
-	    	//Server names: various links to youtube, pastebin and hostr.co, including BLHack and random YouTube videos
-	    	//Massive player count inflation
-    		boolean ip_matched = false
-    		//The first IP is shared by Swallow, who hosted a server on it for 2 minutes on September 6th, 2017,
-    		//preceding this server list spam by 3.5 months
-    			||	fields[0].equals("72.10.168.91")
-				||  fields[0].equals("192.241.169.196")
-			    ||  fields[0].equals("185.186.79.120");
-	    	if(ip_matched && (year_day.equals("2017_326") || year_day.equals("2017_327")))
-	    			continue;
 
 	    	//Server name: Harry Mason's AnalRAPED
 	    	//Server name: Harry Mason's hacked
@@ -85,9 +69,28 @@
 	    	//Faked the player count for about one minute to "2000"
 	    	if(year_day.equals("2017_228") && fields[0].equals("82.9.7.12") && players == 2000)
 	    		players = 0;
-
+	    	
+	    	//Server names: various links to youtube, pastebin and hostr.co, including BLHack and random YouTube videos
+	    	//Massive player count inflation
+    		boolean ip_matched = false
+    		//The first IP is shared by Swallow, who hosted a server on it for 2 minutes on September 6th, 2017,
+    		//preceding this server list spam by 3.5 months
+    			||	fields[0].equals("72.10.168.91")
+				||  fields[0].equals("192.241.169.196")
+			    ||  fields[0].equals("185.186.79.120");
+	    	if(ip_matched && (year_day.equals("2017_326") || year_day.equals("2017_327")))
+	    			continue;
     		
+    		//Server name: i.4cdn.org/b/'s 1516317872663.png
+    		//Massive player count inflation
+	    	if(year_day.equals("2018_017") && fields[0].equals("185.186.78.17"))
+    			continue;
 
+	    	//Server name: Vittoriohp's test
+	    	//Player count inflation, including negative numbers...
+	    	//Why does the master server allow negative numbers?
+	    	if(year_day.equals("2018_114") && (players < 0 || players > 5) && fields[0].equals("79.18.159.101"))
+    			continue;
 </textarea>
 </body>
 
